@@ -1,4 +1,4 @@
-const { Document, Packer, Paragraph, TextRun, AlignmentType } = require("docx");
+import { Document, Packer, Paragraph, TextRun, AlignmentType } from "docx";
 
 function createDocument(dados) {
     return(new Document({
