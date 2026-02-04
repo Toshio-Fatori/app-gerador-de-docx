@@ -34,7 +34,19 @@ async function gerar_documento(e) {
         document: document.getElementById("document").value,
     };
     const doc = createDocument(dados);
-    const buffer = await Packer.toBuffer(doc);
-
-    FileSystem.writeFile("Downloads/Documento.docx", buffer);
+    
+    try {
+        const blob = await docx.Packer.toBlob(doc);
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `Declaracao_${dados.nome}.docx`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    } catch (error) {
+        console.error("Erro ao gerar o documento:", error);
+        alert("Erro ao gerar o arquivo.");
+    }
 }
