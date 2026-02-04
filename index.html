@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Documentos</title>
+ </head>
+ <body>
+    <form action="gerar_documento(e)">
+         <label for="docType">Selecione o tipo de documento:</label>
+         <select id="docType" name="docType">
+             <option value="RG">RG</option>
+             <option value="CNH">CNH</option>
+         </select>
+         <br><br>
+         <label for="nome">Nome:</label><br>
+         <input type="text" id="nome" placeholder="digite o nome...">
+         <br><br>
+         <label for="numDoc">Número do Documento:</label><br>
+         <input type="text" id="numDoc" placeholder="digite o número do documento...">
+         <br><br> 
+         <input type="submit" value="Gerar Documento">
+    </form>
+ </body>
+ <script src = "main.js"></script>
+</html>
