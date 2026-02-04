@@ -1,7 +1,7 @@
 const { Document, Packer, Paragraph, TextRun, AlignmentType } = require("docx");
 
 function createDocument(dados) {
-    const doc = new Document({
+    return(new Document({
         sections: [{
             properties: {},
             children: [
@@ -22,7 +22,7 @@ function createDocument(dados) {
                 }),
             ],
         }],
-    });
+    }));
 }
 
 
@@ -33,7 +33,7 @@ async function gerar_documento(e) {
         documenttype: document.getElementById("documenttype").value,
         document: document.getElementById("document").value,
     };
-    createDocument(dados);
+    const doc = createDocument(dados);
     const buffer = await Packer.toBuffer(doc);
 
     FileSystem.writeFile("Downloads/Documento.docx", buffer);
